@@ -4,21 +4,24 @@ import art
 from game_data import data
 
 def data_generator():
+    """Generation of data taking a random int and accessing the data in a list on concept of list[0]..., -1 done to stay in range of the list"""
     account = random.randint(0, len(data) - 1)
     return data[account]
 
 def answer(d_a, d_b):
+    """Function that will check for the right answer based on the account's follower count"""
     if d_a['follower_count'] > d_b['follower_count']:
         return "A"
     elif d_a['follower_count'] < d_b['follower_count']:
         return "B"
 
-
 def replay():
+    """Replay function allowing user to restart the game whenever they want"""
     if input("\nDo you want to play again? 'Y' or 'N': ").upper() == "Y":
         game()
 
 def game():
+    """A main game function that will work based off the checks performed by other functions"""
     score = 0
     game_over = False
     data_a = data_generator()
